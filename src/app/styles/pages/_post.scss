@@ -1,0 +1,12 @@
+.page-container.post-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	h1 {
+		color: white;
+		font-size: 30px;
+		font-weight: 600;
+		margin-bottom: 40px;
+	}
+}

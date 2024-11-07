@@ -1,0 +1,158 @@
+@use '../modules//forwarded.scss';
+
+.login-page {
+	h3 {
+		font-size: 30px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 38px;
+	}
+
+	// .form-wrapper {
+		.form {
+			background: #0b0d13;
+			padding: 20px 42px;
+			max-width: 600px;
+			justify-self: center;
+			align-self: center;
+			width: 40vw;
+			border-radius: 8px;
+
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+			.form-header {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				margin-bottom: 40px;
+	
+				h2 {
+					font-size: 30px;
+					font-style: normal;
+					font-weight: 700;
+					line-height: 38px;
+				}
+			}
+
+			
+		}
+
+		.link {
+			color: #FC6F32;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 24px;
+		}
+
+		.separator {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+
+			span {
+				width: 120px;
+				text-align: center;
+			}
+
+			hr {
+				margin: 20px 0;
+				padding: 0;
+				height: 0;
+				border: none;
+				border-top: 1px solid white;
+				width: 40%;
+			}
+		}
+	
+	.form_primary_btn {
+		margin-top: 40px;
+	}
+
+	@media (max-width: 1400px) {
+		height: min-content;
+
+		.form-wrapper {
+			.form {
+				margin-left: 0;
+				z-index: 10;
+				width: 100%;
+
+				padding: 20px 40px;
+				max-width: 100vw;
+				
+				.form-header {
+					margin-bottom: 10px;
+
+					h2 {
+						padding: 0px;
+						font-size: 22px;
+						text-wrap: nowrap;
+					}
+
+					.logo_button {
+						svg {
+							width: 120px;
+						}
+					}
+				}
+			}
+		}
+		.right-page-container {
+			display: none;
+		}
+	}
+
+	.links_wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-top: 14px;
+	}
+}
+
+
+
+.options-container {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	button {
+		gap: 20px
+	}
+}
+
+.btn_icon_wrapper {
+	color: forwarded.$v-orange;
+	rotate: -90deg;
+	margin-left: auto;
+}
+
+
+.background_image {
+	position: absolute;
+	top: 0;
+	left: 53vw;
+	width: 500px;
+	max-width: 50vw;
+
+	pointer-events: none;
+	background-image: url( '../../../../public/planet_1.svg' );
+	background-position-x: left;
+	background-size: cover;
+
+	margin-top: 100px;
+	height: calc(100vh - 100px);
+  align-self: center;
+	z-index: 10;
+
+	@media (max-width: 700px) {
+		display: none;
+	}
+}
+
+

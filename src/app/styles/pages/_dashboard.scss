@@ -1,0 +1,11 @@
+.dashboard-page {
+	section {
+		display: flex;
+		flex-direction: row;
+		padding: 10px 10vw;
+		justify-content: space-between;
+		width: 100%;
+		height: min-content;
+		align-items: center;
+	}
+}

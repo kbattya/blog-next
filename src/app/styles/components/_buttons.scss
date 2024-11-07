@@ -1,0 +1,278 @@
+@use '../modules//forwarded.scss';
+
+@property --myColor1 {
+  syntax: '<color>';
+  initial-value: white;
+  inherits: false;
+}
+
+@property --myColor2 {
+  syntax: '<color>';
+  initial-value: white;
+  inherits: false;
+}
+
+@property --myColor3 {
+  syntax: '<color>';
+  initial-value: white;
+  inherits: false;
+}
+
+.btn-primary {
+	@include forwarded.m-button;
+	background: -webkit-linear-gradient(125deg, var(--myColor1, white), var(--myColor2, white), var(--myColor3, white));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	transition: --myColor1 1.5s, --myColor2 1.5s, --myColor3 1.5s;
+}
+
+
+.btn-primary:hover {
+	--myColor1: #FF4A59;
+  --myColor2: #FC6F32;
+	--myColor3: #963488;
+}
+
+
+
+@property --myColor4 {
+  syntax: '<color>';
+  initial-value: transparent;
+  inherits: false;
+}
+
+@property --myColor5 {
+  syntax: '<color>';
+  initial-value: transparent;
+  inherits: false;
+}
+
+@property --myColor6 {
+  syntax: '<color>';
+  initial-value: transparent;
+  inherits: false;
+}
+
+.btn-secondary {
+	@include forwarded.m-button;
+	color: forwarded.$v-white;
+	position: relative;
+	background: -webkit-linear-gradient(125deg, var(--myColor4), var(--myColor5), var(--myColor6));
+  transition: --myColor4 1.5s, --myColor5 1.5s, --myColor6 1.5s;
+}
+
+.btn-secondary::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	font-size: 24px;
+	border-radius: 91px;
+	padding: 2px; 
+	background: forwarded.$v-gradient4;
+	-webkit-mask: 
+		-webkit-linear-gradient(#fff 0 0) content-box, 
+		-webkit-linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+					mask-composite: exclude; 
+
+	animation: animatedgradient 8s linear infinite;
+	background-size: 300% 300%;
+
+	@media (max-width: 420px) {
+		font-size: 20px;
+	}
+}
+
+.btn-secondary:hover {
+	--myColor4: #FF4A59;
+  --myColor5: #FC6F32;
+	--myColor6: #963488;
+}
+
+.btn-secondary--filled {
+	@include forwarded.m-button;
+	@include forwarded.m-row;
+	color: forwarded.$v-white;
+	position: relative;
+	background: -webkit-linear-gradient(125deg, #FF4A59, #FC6F32, #963488);
+	gap: 10px;
+  // transition: #FF4A59 1.5s, #FC6F32 1.5s, #963488 1.5s;
+}
+
+.btn-secondary--filled:hover {
+	background: -webkit-linear-gradient(125deg, #FF4A59, #A53708, #B53EA4);
+}
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+.btn-outlined {
+	@include forwarded.m-button;
+	position: relative;
+	color: white;
+
+	transition: color 1.5s;
+}
+
+
+.btn-outlined::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	font-size: 24px;
+	border-radius: 91px;
+	padding: 2px; 
+	
+	background: -webkit-linear-gradient(125deg, var(--myColor1), var(--myColor2), var(--myColor3));
+	transition: --myColor1 1.5s, --myColor2 1.5s, --myColor3 1.5s;
+
+	-webkit-mask: 
+		-webkit-linear-gradient(#fff 0 0) content-box, 
+		-webkit-linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+					mask-composite: exclude; 
+
+	@media (max-width: 420px) {
+		font-size: 20px;
+	}
+}
+
+.btn-outlined:hover::before {
+	--myColor1: #FF4A59;
+	--myColor2: #FC6F32;
+	--myColor3: #963488;
+}
+
+// .btn-outlined:hover {
+// 	color: #FC6F32;
+// 	transition: color 1.5s;
+// }
+
+.btn-primary--small, .btn-secondary--small {
+	font-size: 18px;
+	border-radius: 91px;
+	padding: 14px 32px 16px 32px;
+
+	@media (max-width: 1920px) {
+		font-size: 16px;
+		border-radius: 91px;
+		padding: 12px 28px;
+	}
+
+	@media (max-width: 420px) {
+		font-size: 16px;
+	}
+}
+
+.btn-primary--medium, .btn-secondary--medium {
+	font-size: 24px;
+	border-radius: 91px;
+	padding: 22px 48px 24px 48px;
+
+	@media (max-width: 1920px) {
+		font-size: 18px;
+		border-radius: 91px;
+		padding: 18px 40px;
+	}
+}
+
+.btn-group-row {
+	@include forwarded.m-row;
+	gap: 22px;
+}
+
+.form_primary_btn {
+	color: white;
+	@include forwarded.m-button;
+	background-color: forwarded.$v-orange;
+	height: 45px;
+}
+
+.form_primary_btn:hover {
+	background-color: forwarded.$v-orange-hovered;
+}
+
+.form_primary_btn:disabled {
+	background-color: #fc6f323d;
+	cursor: not-allowed;
+}
+
+.form_secondary_btn {
+	@include forwarded.m-button;
+	height: 45px;
+	background: forwarded.$v-gray;
+	color: white;
+}
+
+.form_secondary_btn:hover {
+	background: forwarded.$v-gray-hovered;
+}
+
+.form_google_btn {
+	@include forwarded.m-button;
+	height: 45px;
+	background: forwarded.$v-red;
+}
+
+.form_google_btn:hover {
+	background: forwarded.$v-red-hovered;
+}
+
+.form_plain_btn {
+	@include forwarded.m-button;
+	color: forwarded.$v-orange;
+	height: 45px;
+
+	&--close {
+		padding-right: 0px;
+	}
+}
+
+.btn-danger {
+	@include forwarded.m-button;
+	height: 45px;
+	border-color: rgba(255, 81, 0, 0.851);
+	color: rgba(255, 55, 0, 0.851);
+	border: 1px solid;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.gradient-link {
+	@include forwarded.m-button;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.gradient-link svg path {
+  transition: fill 0.4s ease;
+  fill: white; 
+}
+
+.gradient-link:hover .gradient-text, .gradient-link--active .gradient-text  {
+	background: linear-gradient(109deg, #B53EA4 3.07%, #FC6F32 47.61%, #FF4A59 93.05%);
+  -webkit-background-clip: text;
+  color: transparent; 
+	transition: color 0.5s ease, background 0.5s ease; 
+}
+
+.gradient-link:hover svg path, .gradient-link--active svg path  {
+  fill: url(#svgGradient); 
+	transition: color 0.5s ease, background 0.5s ease; 
+}

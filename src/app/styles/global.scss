@@ -1,0 +1,67 @@
+@use 'modules/forwarded';
+@use 'pages/login';
+@use 'pages/dashboard';
+@use "pages/home";
+@use "pages/post";
+@use 'components/buttons';
+@use 'components/inputs';
+@use 'components/loaders';
+
+:root {
+  --text-animation-speed: 1.5s;
+}
+
+html {
+	scroll-behavior: smooth;
+
+	// @media (max-width: 800px) {
+	// 	position: fixed;
+	// }
+}
+
+
+body {
+	background: forwarded.$v-black;
+	overflow-x: hidden;
+}
+
+main {
+	overflow: hidden;
+}
+
+.page-container {
+	background: #000;
+	min-height: 100vh;
+	min-height: 100dvh;
+	min-width: 100vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 0px;
+	color: white;
+	padding: 5vw;
+	overflow: hidden;
+}
+
+// section {
+// 	margin-bottom: 200px;
+// }
+
+
+
+h2 {
+	color: forwarded.$v-white;
+	font-size: 64px;
+	text-align: center;
+
+	@media (max-width: 1920px) {
+		font-size: 54px;
+	}
+
+	@media (max-width: 500px) {
+		padding: 20px;
+		font-size: 44px;
+	}
+}
+
+

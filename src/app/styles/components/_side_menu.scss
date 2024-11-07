@@ -1,0 +1,88 @@
+.side_menu {
+	width: 300px;
+	min-width: 20vw;
+	border-right: 1px solid rgba(255, 255, 255, 0.10);
+	
+	display: flex;
+	flex-direction: column;
+	max-height: 100vh;
+	max-height: 100dvh;
+
+	button {
+		width: 100%;	
+	}
+
+	.chat_nav {
+		padding: 24px;
+		min-height: calc(100dvh - 400px);
+		-ms-overflow-style: none;  /* IE and Edge */
+		scrollbar-width: none;
+
+		::-webkit-scrollbar {
+			display: none;
+		}
+
+		.btn-group {
+			margin-top: 10px;
+			max-height: calc(100vh - 350px);
+			overflow: scroll;
+		}
+	}
+
+	.actions {
+		margin-top: auto;
+
+		.logo_button {
+			padding: 34px;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 10px;
+
+			svg {
+				width: 160px;
+			}
+		}
+
+		.btn-group {
+			padding: 24px;
+			border-top: 1px solid rgba(255, 255, 255, 0.10);
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+		}
+	}
+
+	.btn-outlined {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 10px;
+
+		span {
+			text-align: start;
+		}
+
+		svg {
+			min-width: 24px;
+			height: auto;
+		}
+	}
+
+	.btn-outlined:hover {
+		color: #ff947e;
+	}
+
+	.btn-outlined--active {
+		color: #FC6F32;
+	}
+
+	.btn-outlined::before  {
+		background: none;
+	}
+
+	@media (max-width: 800px) {
+		display: none;
+	}	
+}
