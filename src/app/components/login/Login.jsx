@@ -30,26 +30,33 @@ export default function LoginPage () {
 	}
 
 	const handleLogin = async (e) => {
-		setIsLoading(true)
-		e.preventDefault();
+		if (username.length > 0 && password.length > 0) {
+			try {
+				setIsLoading(true)
+				e.preventDefault();
 
-		const res = await fetch('/api/login', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({ username, password })
-		});
+				const res = await fetch('/api/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ username, password })
+				});
 
-		if (res.ok) {
-			const { token } = await res.json();
-			localStorage.setItem('authToken', token);
-			setError('');
-			router.push('/dashboard');
-		} else {
-			setError('Invalid credentials');
+				if (res.ok) {
+					const { token } = await res.json();
+					localStorage.setItem('authToken', token);
+					setError('');
+					router.push('/dashboard');
+				} else {
+					setError('Invalid credentials');
+				}
+				setIsLoading(false)
+			} catch (e) {
+				console.log(e)
+			}
 		}
-		setIsLoading(false)
+		
 	};
 
 	return (
@@ -63,7 +70,7 @@ export default function LoginPage () {
 						<label
 							htmlFor="email"
 						>
-							Your Email
+							Your username
 						</label>
 						<input
 							id="username"

@@ -4,8 +4,8 @@ import './main.scss';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Arrakis AI",
-  description: "A new economic primitive for funding decentralazed AI",
+  title: "Test task",
+  description: "next js app",
 	icons: {
 		icon: '/icon.ico'
 	},
